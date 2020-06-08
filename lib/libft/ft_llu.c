@@ -6,12 +6,11 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/18 12:53:49 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 13:31:47 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/08 14:56:38 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void		ft_llu(t_conv *conv, va_list a_list, int *lv)
 {

@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lst_new_back.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abe <marvin@42.fr>                         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 21:17:52 by abe               #+#    #+#             */
-/*   Updated: 2020/01/15 18:27:33 by abe              ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   lst_new_back.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: greed <greed@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/08 16:08:25 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 16:08:43 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblist.h"
-
-/*
-**	Add a new node to the end of a list.
-**
-**	@param {t_list **} node - the address of the the first node of the list
-**		to add the new node to. If this points to NULL, the pointer will be set
-**		to the new node to create a new list. If this is NULL, nothing happens.
-**	@param {void *} content - the content of the new node
-**
-**	@return {t_list *} - the pointer to the new node. NULL if something went
-**		wrong.
-*/
 
 t_list	*lst_new_back(t_list **node, void *content)
 {

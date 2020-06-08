@@ -3,21 +3,20 @@
 /*                                                        ::::::::            */
 /*   liblist.h                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: abe <marvin@42.fr>                           +#+                     */
+/*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/13 21:08:19 by abe           #+#    #+#                 */
-/*   Updated: 2020/05/28 09:06:10 by greed         ########   odam.nl         */
+/*   Created: 2020/06/08 16:10:20 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 16:14:03 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBLIST_H
 # define LIBLIST_H
-#include <stddef.h>
-
+# include <stddef.h>
 
 typedef struct s_list	t_list;
 
-struct					s_list
+struct	s_list
 {
 	void	*content;
 	t_list	*next;

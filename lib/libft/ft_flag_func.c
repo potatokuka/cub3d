@@ -5,13 +5,12 @@
 /*                                                     +:+                    */
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/13 17:13:38 by greed          #+#    #+#                */
-/*   Updated: 2019/12/07 13:08:25 by greed         ########   odam.nl         */
+/*   Created: 2019/11/13 17:13:38 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 14:55:20 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void			ft_find_type(const char **input, t_conv *conv)
 {

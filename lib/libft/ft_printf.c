@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/12 10:15:46 by greed          #+#    #+#                */
+/*   Created: 2019/11/12 10:15:46 by greed         #+#    #+#                 */
 /*   Updated: 2019/12/07 13:07:43 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -42,7 +42,6 @@ void		ft_converter_link(t_conv *conv, va_list a_list, int *lv)
 	funcs[5] = &ft_uint_link;
 	funcs[6] = &ft_x_link;
 	funcs[7] = &ft_up_x_link;
-	// funcs[8] = &ft_print_count;
 	funcs[9] = &ft_print_pct;
 	i = 0;
 	while (types[i])

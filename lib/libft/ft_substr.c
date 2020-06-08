@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/01 09:07:10 by greed          #+#    #+#                */
+/*   Created: 2019/11/01 09:07:10 by greed         #+#    #+#                 */
 /*   Updated: 2019/12/07 12:59:14 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char		*ft_substr_lib(char const *s, unsigned int start, size_t 							len)
+char		*ft_substr_lib(char const *s, unsigned int start, size_t len)
 {
 	size_t				i;
 	char				*dst;

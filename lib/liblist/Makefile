@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: aaugusti <aaugusti@student.codam.nl>         +#+                      #
+#    By: greed <greed@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/10/29 11:05:37 by aaugusti       #+#    #+#                 #
-#    Updated: 2020/02/08 12:08:23 by greed         ########   odam.nl          #
+#    Created: 2020/06/08 16:10:11 by greed         #+#    #+#                  #
+#    Updated: 2020/06/08 16:10:12 by greed         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 

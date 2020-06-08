@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:34:52 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/28 09:04:25 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/08 16:23:38 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE	32
-#endif
+# endif
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -51,14 +51,16 @@ char				*ft_strtrim(char const *s1, char const *set);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_strchr_lib(const char *s, int c);
-size_t				ft_strlcpy_lib(char *dst, const char *src, size_t 							dstsize);
+size_t				ft_strlcpy_lib(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen_lib(const char *s);
 char				*ft_strdup_lib(const char *s1);
-char				*ft_substr_lib(char const *s, unsigned int start,							size_t len);
+char				*ft_substr_lib(char const *s, unsigned int start,
+						size_t len);
 char				*ft_strjoin_lib(char const *s1, char const *s2);
 int					ft_strcmp(char *s1, char *s2);
 
 # ifndef NOLIST
+
 typedef struct		s_list
 {
 	void			*content;
@@ -67,6 +69,7 @@ typedef struct		s_list
 # endif
 
 # ifndef NOLIST
+
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
@@ -79,17 +82,14 @@ t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 # endif
 
-/* Get Next Line */
-int		ft_strchr(char *s, int c);
-char	*ft_strdup(char *s1);
-size_t	ft_strlen(char *s);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
-int		get_next_line(int fd, char **line);
-int		pull_line(char **get, char **line, int c);
-
-/* FT_PRINTF */
+int					ft_strchr(char *s, int c);
+char				*ft_strdup(char *s1);
+size_t				ft_strlen(char *s);
+char				*ft_substr(char *s, unsigned int start, size_t len);
+char				*ft_strjoin(char *s1, char *s2);
+size_t				ft_strlcpy(char *dst, char *src, size_t dstsize);
+int					get_next_line(int fd, char **line);
+int					pull_line(char **get, char **line, int c);
 
 typedef struct		s_conv
 {

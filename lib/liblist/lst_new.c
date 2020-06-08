@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abe <marvin@42.fr>                         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 21:15:42 by abe               #+#    #+#             */
-/*   Updated: 2020/01/13 21:17:44 by abe              ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   lst_new.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: greed <greed@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/08 16:09:24 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 16:09:25 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblist.h"
 #include <stdlib.h>
-
-/*
-**	Create a new node.
-**
-**	@param {void *} content - a pointer to the content of the node
-**
-**	@return {t_list *} - a pointer to the new node. NULL if an error occured
-*/
 
 t_list	*lst_new(void *content)
 {

@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lst_reverse.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abe <marvin@42.fr>                         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/14 09:22:32 by abe               #+#    #+#             */
-/*   Updated: 2020/01/14 11:47:08 by aaugusti         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   lst_reverse.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: greed <greed@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/08 16:09:47 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 16:09:48 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblist.h"
-
-/*
-**	Reverse a linked list.
-**
-**	@param {t_list **} node - a pointer to the start of the list. The pointer
-**		to the new beginning of the list will be stored here.
-*/
 
 void	lst_reverse(t_list **node)
 {

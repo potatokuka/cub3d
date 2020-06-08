@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lst_remove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abe <marvin@42.fr>                         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/14 09:15:48 by abe               #+#    #+#             */
-/*   Updated: 2020/01/14 09:58:02 by abe              ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   lst_remove.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: greed <greed@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/08 16:09:35 by greed         #+#    #+#                 */
+/*   Updated: 2020/06/08 16:09:36 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblist.h"
 #include <stdlib.h>
-
-/*
-**	Remove a node from a list.
-**
-**	@param {t_list *} node - the node to remove
-**	@param {void (*)(void *)} free_func - the function which is called with the
-**		nodes content as argument, to free it properly.
-*/
 
 void	lst_remove(t_list *node, void (*free_func)(void *))
 {
