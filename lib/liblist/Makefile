@@ -39,7 +39,7 @@ $(NAME): $(OFILES)
 clean:
 	rm -f $(OFILES)
 
-fclean: _clean
+fclean: clean
 	rm -f $(NAME) test
 
 re: fclean all
