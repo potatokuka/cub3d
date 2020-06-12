@@ -6,7 +6,7 @@
 #    By: greed <greed@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/06/08 16:10:11 by greed         #+#    #+#                  #
-#    Updated: 2020/06/08 16:10:12 by greed         ########   odam.nl          #
+#    Updated: 2020/06/08 18:34:36 by greed         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,11 @@ $(NAME): $(OFILES)
 %.o: %.c
 	gcc -o $@ -c $< $(FLAGS)
 
-clean: _clean
+clean:
+	rm -f $(OFILES)
 
 fclean: _clean
 	rm -f $(NAME) test
 
-_clean:
-	@rm -f $(OFILES) test.o
-
 re: fclean all
 
-test: $(OFILES) test.o
-	gcc -o test $(FLAGS) $(OFILES) test.o -fsanitize=address
