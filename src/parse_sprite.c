@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 13:47:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/20 17:51:41 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/12 15:12:18 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		ft_save_sprite(t_ray *ray, char *path)
 {
 	if (ft_strncmp(path, "./pics/", 7))
-		put_error("Invalid East Text");
+		put_error("Invalid Sprite Text");
 	else
 	{
 		ray->data.g_text_sprite = (char *)calloc(ft_strlen_lib(path) + 1,

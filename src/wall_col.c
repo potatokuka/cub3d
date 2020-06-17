@@ -6,17 +6,17 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/07 16:10:36 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 19:04:40 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/17 11:22:40 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		len_start(char *str)
+static int		len_start(char *str)
 {
-	int	len;
-	int	i;
-	int start;
+	int		len;
+	int		i;
+	int		start;
 
 	i = 0;
 	start = 0;
@@ -35,10 +35,10 @@ int		len_start(char *str)
 	return (start);
 }
 
-int		height_start(char **map, int max_height, int x)
+static int		height_start(char **map, int max_height, int x)
 {
-	int i;
-	int start;
+	int		i;
+	int		start;
 
 	start = 0;
 	i = 0;
@@ -54,7 +54,7 @@ int		height_start(char **map, int max_height, int x)
 	return (start);
 }
 
-int		height_end(char **map, int max_height, int x)
+static int		height_end(char **map, int max_height, int x)
 {
 	int		i;
 	int		end;
@@ -74,10 +74,10 @@ int		height_end(char **map, int max_height, int x)
 	return (end);
 }
 
-int		len_end(char *str)
+static int		len_end(char *str)
 {
-	int	len;
-	int end;
+	int		len;
+	int		end;
 
 	end = 0;
 	len = ft_strlen(str);
@@ -96,13 +96,13 @@ int		len_end(char *str)
 	return (end);
 }
 
-int		wall_col(t_ray *ray, int x, int y)
+int				wall_col(t_ray *ray, int x, int y)
 {
-	int len;
-	int	max_wid;
-	int	min_wid;
-	int	max_height;
-	int	min_height;
+	int		len;
+	int		max_wid;
+	int		min_wid;
+	int		max_height;
+	int		min_height;
 
 	if (!ray->map_array[y])
 		return (-1);
@@ -110,8 +110,8 @@ int		wall_col(t_ray *ray, int x, int y)
 	max_wid = len_end(ray->map_array[y]);
 	min_height = height_start(ray->map_array, ray->map_height - 1, x);
 	max_height = height_end(ray->map_array, ray->map_height - 1, x);
-	if (min_wid == max_wid || min_height == max_height ||
-			ray->map_array[y][x] != 'O')
+	if (x < min_wid || x > max_wid || y < min_height || y > max_height
+		|| ray->map_array[y][x] != 'O')
 		return (-1);
 	len = ft_strlen(ray->map_array[y]);
 	if (!len)

@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/30 11:57:09 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/12 16:32:04 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@
 # define START_P_DIR_Y   	0
 # define START_P_PLANE_X 	0
 # define START_P_PLANE_Y 	0.66
-# define MV_SPEED        	0.035
+# define MV_SPEED        	0.038
 # define ROT_SPEED       	0.05
-# define BUMP_B				-0.000038
+# define BUMP_B				-0.000040
 # define AMB_LIGHT       	7
 # define LOOKSPEED			0.040
 # define LOOKACCEL			0.004

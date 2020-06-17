@@ -1,0 +1,15 @@
+R 500 500
+NO ./pics/goop.xpm
+SO ./pics/woody.xpm
+WE ./pics/lookyface.xpm
+EA ./pics/leakybuzz.xpm
+S ./pics/swolmo.xpm
+F 50,0,0
+C 5,9,50
+
+
+11111111111111111
+10000000000000001
+1N001002000001111111111
+1002000111111111111111111111
+111111111111
