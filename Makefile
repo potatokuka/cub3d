@@ -71,6 +71,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
 	make -C $(MLX_LOC)
+	cp $(MLX_LOC)/libmlx.dylib .
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
 	make bonus -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
@@ -82,6 +83,7 @@ $(NAME): $(OFILES)
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
 	make clean -C $(MLX_LOC)
+	@-rm libmlx.dylib
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
 	make clean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"
