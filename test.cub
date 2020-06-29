@@ -1,8 +1,8 @@
 R 500 500
 NO ./pics/goop.xpm
-SO ./pics/woody.xpm
-WE ./pics/lookyface.xpm
-EA ./pics/leakybuzz.xpm
+SO ./pics/leakybuzz.xpm
+WE ./pics/woody.xpm
+EA ./pics/lookyface.xpm
 S ./pics/swolmo.xpm
 F 50,0,0
 C 5,9,50

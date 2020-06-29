@@ -6,11 +6,11 @@
 #    By: greed <greed@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/09 14:50:26 by greed         #+#    #+#                  #
-#    Updated: 2020/05/29 20:18:19 by greed         ########   odam.nl          #
+#    Updated: 2020/06/26 12:02:00 by greed         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	cub3d
+NAME			=	cub3D
 SRCS			=	bmp_save.c\
 					calc_text.c\
 					colors.c\

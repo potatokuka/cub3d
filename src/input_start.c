@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:51:28 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/17 11:13:09 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/26 12:49:52 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,14 @@ void	ft_input_check(int ac, char **av, t_ray *ray)
 		put_error("not correct amount of arguments given");
 	if (ac == 3)
 		ft_input_ac_3(av, ray);
+	if (valid_file(av[1]) == false)
+		put_error("Invalid input file given");
 	if (ac == 2)
 	{
 		while (av[1][i])
 		{
 			if (ft_strchr_lib(".", av[1][i]))
-			{
-				if (valid_file(av[1]) == false)
-					put_error("Invalid input given");
-				else
-					ft_save_input(ray, av[1]);
-			}
+				ft_save_input(ray, av[1]);
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/12 16:32:04 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/26 12:30:49 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@
 # define AMB_LIGHT       	7
 # define LOOKSPEED			0.040
 # define LOOKACCEL			0.004
+# define DEG90				1.5708
+# define DEG270				4.71239
 
 /*
 **	Controls
