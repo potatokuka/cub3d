@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/20 17:53:50 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 11:54:14 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,9 @@ void			get_text_color(t_ray *ray, int y)
 
 void			img_to_window(t_ray *ray)
 {
-	if (ray->curr_img == 0)
-	{
-		mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
-			ray->img_ptr, 0, 0);
-		ray->curr_img = 1;
-	}
-	else
-	{
-		mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
-			ray->img_ptr2, 0, 0);
-		ray->curr_img = 0;
-	}
+	if (mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
+			ray->img_ptr, 0, 0))
+		put_error("MLX failed to put image to window");
 }
 
 void			draw_vert_line(t_ray *ray, int x)

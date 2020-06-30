@@ -23,7 +23,7 @@ void		start_text_west(t_ray *ray)
 		&(ray->text_west.bits_pp),
 		&(ray->text_west.line_len),
 		&(ray->text_west.endian));
-	if (ray->text_west.addr == NULL)	
+	if (ray->text_west.addr == NULL)
 		put_error("Invalid West Texture Pic");
 }
 
