@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 16:29:37 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 11:50:57 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 20:55:56 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ void		change_start_dir(t_ray *ray)
 		rotate = (DEG270);
 	if (ray->start_dir == 'W')
 		rotate = (DEG90);
-	old_dir_x = ray->play_dir_x;
-	ray->play_dir_x = ray->play_dir_x * cos(rotate) -
-						ray->play_dir_y * sin(rotate);
-	ray->play_dir_y = old_dir_x * sin(rotate) + ray->play_dir_y * cos(rotate);
-	old_plane_x = ray->play_plane_x;
-	ray->play_plane_x = ray->play_plane_x * cos(rotate) -
-							ray->play_plane_y * sin(rotate);
-	ray->play_plane_y = old_plane_x * sin(rotate) +
-							ray->play_plane_y * cos(rotate);
+	old_dir_x = ray->play.dir.x;
+	ray->play.dir.x = ray->play.dir.x * cos(rotate) -
+						ray->play.dir.y * sin(rotate);
+	ray->play.dir.y = old_dir_x * sin(rotate) + ray->play.dir.y * cos(rotate);
+	old_plane_x = ray->play.plane.x;
+	ray->play.plane.x = ray->play.plane.x * cos(rotate) -
+							ray->play.plane.y * sin(rotate);
+	ray->play.plane.y = old_plane_x * sin(rotate) +
+							ray->play.plane.y * cos(rotate);
 }
 
 void		init(t_ray *ray)
 {
-	ray->play_dir_x = -1;
-	ray->play_dir_y = 0;
-	ray->play_plane_x = 0;
-	ray->play_plane_y = 0.66;
+	ray->play.dir.x = -1;
+	ray->play.dir.y = 0;
+	ray->play.plane.x = 0;
+	ray->play.plane.y = 0.66;
 	ray->map_x = 0;
 	ray->map_y = 0;
 	if (ray->start_dir != 'N')

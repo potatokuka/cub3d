@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:48:51 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 19:04:19 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 18:05:30 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void		set_play_pos(t_ray *ray, int x, int y)
 {
 	ray->start_dir = (ft_start_dir(ray, &ray->map_array[y][x]));
 	ray->nsew += 1;
-	ray->play_pos_x = (x + 0.48);
-	ray->play_pos_y = (y + 0.43);
+	ray->play.pos.x = (x + 0.48);
+	ray->play.pos.y = (y + 0.43);
 	ray->map_array[y][x] = '0';
 	if (flood_fill_map(ray, x, y) == 1)
 		put_error("Invalid Map");

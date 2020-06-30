@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 19:41:30 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 14:10:15 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 20:55:21 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ void				sprite_draw_calc(t_ray *ray)
 void				sprite_calc(t_ray *ray, int sprite_order[], int i)
 {
 	ray->sprite.sprite_x = g_sprite_list[sprite_order[i]].x -
-							ray->play_pos_x;
+							ray->play.pos.x;
 	ray->sprite.sprite_y = g_sprite_list[sprite_order[i]].y -
-							ray->play_pos_y;
-	ray->sprite.inv_det = 1.0 / (ray->play_plane_x *
-	ray->play_dir_y - ray->play_dir_x * ray->play_plane_y);
+							ray->play.pos.y;
+	ray->sprite.inv_det = 1.0 / (ray->play.plane.x *
+	ray->play.dir.y - ray->play.dir.x * ray->play.plane.y);
 	ray->sprite.transform_x = ray->sprite.inv_det *
-	(ray->play_dir_y * ray->sprite.sprite_x -
-	ray->play_dir_x * ray->sprite.sprite_y);
+	(ray->play.dir.y * ray->sprite.sprite_x -
+	ray->play.dir.x * ray->sprite.sprite_y);
 	ray->sprite.transform_y = ray->sprite.inv_det *
-	(-ray->play_plane_y * ray->sprite.sprite_x +
-	ray->play_plane_x * ray->sprite.sprite_y);
+	(-ray->play.plane.y * ray->sprite.sprite_x +
+	ray->play.plane.x * ray->sprite.sprite_y);
 	ray->sprite.sprite_screen_x = ((ray->win_x / 2) *
 	(1 + ray->sprite.transform_x / ray->sprite.transform_y));
 	ray->sprite.sprite_height = fabs((ray->win_y / (ray->sprite.transform_y)));

@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:59:47 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/12 15:42:30 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 20:47:45 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_test_vars(t_ray *ray)
 	test_text_value(ray);
 	ft_printf("\nStart Dir\n-----------\n\n%c\n", ray->data.g_direction);
 	ft_printf("\nStart Pos\n-----------\n");
-	ft_printf("\nX = %f\nY = %f\n", ray->play_pos_x, ray->play_pos_y);
+	ft_printf("\nX = %f\nY = %f\n", ray->play.pos.x, ray->play.pos.y);
 	ft_printf("\nMAP WIDTH\n %d\n-----------\n", ray->map_wid);
 	print_map(ray);
 }

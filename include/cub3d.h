@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/26 12:30:49 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 18:04:12 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ typedef struct		s_play
 	t_vect			pos;
 	t_vect			dir;
 	t_vect			plane;
-}					t_vect;
+}					t_play;
 
 typedef struct		s_ray
 {
@@ -259,6 +259,7 @@ typedef struct		s_ray
 	t_text			text_south;
 	t_text			text_west;
 	t_sprite		sprite;
+	t_play			play;
 	void			*mlx_ptr;
 	void			*mlx_ptr2;
 	void			*mlx_wind;
@@ -387,6 +388,8 @@ void				move_back(t_ray *ray);
 void				move_forward(t_ray *ray);
 void				handle_strafe(t_ray *ray);
 void				handle_moving(t_ray *ray);
+
+int					new_movement(t_ray *ray);
 
 /*
 **	Testing

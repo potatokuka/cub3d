@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 18:34:10 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 18:57:45 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 18:06:59 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void		cast_sprite(t_ray *ray)
 	while (i < ray->data.g_num_sprite)
 	{
 		sprite_order[i] = i;
-		sprite_dist[i] = ((ray->play_pos_x - g_sprite_list[i].x) *
-		(ray->play_pos_x - g_sprite_list[i].x) + (ray->play_pos_y -
-		g_sprite_list[i].y) * (ray->play_pos_y - g_sprite_list[i].y));
+		sprite_dist[i] = ((ray->play.pos.x - g_sprite_list[i].x) *
+		(ray->play.pos.x - g_sprite_list[i].x) + (ray->play.pos.y-
+		g_sprite_list[i].y) * (ray->play.pos.y - g_sprite_list[i].y));
 		i++;
 	}
 	comb_sort(sprite_order, sprite_dist, ray->data.g_num_sprite);
