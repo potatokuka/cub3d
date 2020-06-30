@@ -12,6 +12,16 @@
 
 #include "cub3d.h"
 
+char		ft_chrmatch(char c, char *set)
+{
+	size_t	i;
+	
+	i = 0;
+	while (set[i] && set[i] != c)
+		i++;
+	return (set[i] == 0) ? 0 : 1;
+}
+
 bool		valid_file(char *str)
 {
 	int		i;

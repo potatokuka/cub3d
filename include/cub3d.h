@@ -179,6 +179,19 @@ typedef	struct		s_sprite
 **	All working data for Ray Casting (RAY)
 */
 
+typedef struct		s_vect
+{
+	double			x;
+	double			y;
+}					t_vect;
+
+typedef struct		s_play
+{
+	t_vect			pos;
+	t_vect			dir;
+	t_vect			plane;
+}					t_vect;
+
 typedef struct		s_ray
 {
 	double			play_pos_x;
@@ -286,6 +299,7 @@ t_clr				dark_mode(t_clr clr, double distance);
 */
 
 void				ft_img_to_bmp(t_ray *ray);
+char				ft_chrmatch(char c, char *set);
 
 /*
 **	Reading File
