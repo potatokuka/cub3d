@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 16:29:37 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/26 12:36:20 by greed         ########   odam.nl         */
+/*   Updated: 2020/06/30 11:41:37 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		init(t_ray *ray)
 	if (ray->bmp == 0)
 		ray->mlx_wind = mlx_new_window(ray->mlx_ptr, ray->win_x,
 			ray->win_y, "cub3d");
-	mlx_do_key_autorepeatoff(ray->mlx_ptr);
+	// mlx_do_key_autorepeatoff(ray->mlx_ptr);
 	if (ray->mlx_wind == NULL && ray->bmp == 0)
 		put_error("mlx error");
 	ray->z_buff = (double *)malloc(sizeof(double) * ray->win_x);
