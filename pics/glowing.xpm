@@ -2,21 +2,6 @@
 static char *f195e3428fb74929b88d754ac4fc027035bLXxcivDtiQeY4[] = {
 /* columns rows colors chars-per-pixel */
 "36 36 16 1 ",
-"  c None",
-". c #494949",
-"X c #6B6A6B",
-"o c #797879",
-"O c gray51",
-"+ c #898889",
-"@ c #ADABAD",
-"# c #B3B2B3",
-"$ c #BCBCBC",
-"% c gray77",
-"& c #CBC9C9",
-"* c LightGray",
-"= c #D7D7D7",
-"- c gray86",
-"; c #F9FBCB",
 ": c white",
 /* pixels */
 "                                    ",
