@@ -27,14 +27,14 @@ t_vect	ft_yeet_back(char **map, t_vect old)
 	update = old;
 	if (ft_iseq(floor(old.y), old.y) && (int)old.y - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y - 1][(int)old.x], "1"))
-			update.y += BUMP_B;
+			update.y += 0.05;
 	if (ft_iseq(ceil(old.y), old.y) && map[(int)old.y + 1][(int)old.x] == '1')
-		update.y -= BUMP_B;
+		update.y -= 0.05;
 	if (ft_iseq(floor(old.x), old.x) && (int)old.x - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y][(int)old.x - 1], "1"))
-			update.x += BUMP_B;
+			update.x += 0.05;
 	if (ft_iseq(ceil(old.x), old.x) && map[(int)old.y][(int)old.x + 1] == '1')
-		update.x -= BUMP_B;
+		update.x -= 0.05;
 	return (update);
 }
 
@@ -63,9 +63,9 @@ int		new_movement(t_ray *ray)
 	if (ray->moving == 1)
 	{
 		if (ray->strafe_l)
-			ft_rot_dir(ray, -ROT_SPEED);
-		if (ray->strafe_r)
 			ft_rot_dir(ray, ROT_SPEED);
+		if (ray->strafe_r)
+			ft_rot_dir(ray, -ROT_SPEED);
 		if (ray->move_right)
 			ft_update_pos(ray, ray->play.plane, MV_SPEED);
 		if (ray->move_left)
