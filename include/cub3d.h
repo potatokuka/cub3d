@@ -390,6 +390,7 @@ void				handle_strafe(t_ray *ray);
 void				handle_moving(t_ray *ray);
 
 int					new_movement(t_ray *ray);
+void				ft_rot_dir(t_ray *ray, double ang);
 
 /*
 **	Testing

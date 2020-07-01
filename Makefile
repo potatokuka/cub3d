@@ -41,7 +41,9 @@ SRCS			=	bmp_save.c\
 					red_x.c\
 					utils.c\
 					valid_map_check.c\
-					wall_col.c
+					wall_col.c\
+					wall_col2.c\
+					rot_dir.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST 

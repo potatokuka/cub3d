@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 11:54:14 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 09:21:39 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int				render_frame(t_ray *ray)
 
 	x = 0;
 	if (ray->moving == 1)
-		handle_moving(ray);
+		new_movement(ray);
 	while (x < ray->win_x)
 	{
 		start_calc(ray, x);
