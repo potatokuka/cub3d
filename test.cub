@@ -1,6 +1,6 @@
-R 700 700
+R 0 1
 NO./pics/goop.xpm
-SO ./pics/leakybuzz.xpm
+SO ./pics/woody.xpm
 WE ./pics/woody.xpm
 EA ./pics/lookyface.xpm
 S ./pics/swolmo.xpm

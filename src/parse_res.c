@@ -19,9 +19,11 @@ void	ft_check_res(t_ray *ray)
 
 	mlx_get_screen_size(ray->mlx_ptr, &max_resx, &max_resy);
 	max_resy -= 44;
-	if (ray->win_x > max_resx || ray->win_x < 0)
+	if (ray->win_x < 1 || ray->win_y < 1)
+		put_error("Invalid Resolution Given");
+	if (ray->win_x > max_resx)
 		ray->win_x = max_resx;
-	if (ray->win_y > max_resy || ray->win_y < 0)
+	if (ray->win_y > max_resy)
 		ray->win_y = max_resy;
 }
 
