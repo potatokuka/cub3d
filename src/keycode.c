@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/20 12:18:54 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/24 17:29:25 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 11:09:04 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ int		handle_release(int keycode, t_ray *ray)
 	ray->moving = 0;
 	return (0);
 }
-

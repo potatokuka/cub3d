@@ -27,14 +27,14 @@ t_vect	ft_yeet_back(char **map, t_vect old)
 	update = old;
 	if (ft_iseq(floor(old.y), old.y) && (int)old.y - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y - 1][(int)old.x], "1"))
-			update.y += 0.05;
+		update.y += 0.056;
 	if (ft_iseq(ceil(old.y), old.y) && map[(int)old.y + 1][(int)old.x] == '1')
-		update.y -= 0.05;
+		update.y -= 0.056;
 	if (ft_iseq(floor(old.x), old.x) && (int)old.x - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y][(int)old.x - 1], "1"))
-			update.x += 0.05;
+		update.x += 0.056;
 	if (ft_iseq(ceil(old.x), old.x) && map[(int)old.y][(int)old.x + 1] == '1')
-		update.x -= 0.05;
+		update.x -= 0.056;
 	return (update);
 }
 

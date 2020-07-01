@@ -47,7 +47,7 @@ void		cast_sprite(t_ray *ray)
 	{
 		sprite_order[i] = i;
 		sprite_dist[i] = ((ray->play.pos.x - g_sprite_list[i].x) *
-		(ray->play.pos.x - g_sprite_list[i].x) + (ray->play.pos.y-
+		(ray->play.pos.x - g_sprite_list[i].x) + (ray->play.pos.y -
 		g_sprite_list[i].y) * (ray->play.pos.y - g_sprite_list[i].y));
 		i++;
 	}

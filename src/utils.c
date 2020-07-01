@@ -15,7 +15,7 @@
 char		ft_chrmatch(char c, char *set)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (set[i] && set[i] != c)
 		i++;

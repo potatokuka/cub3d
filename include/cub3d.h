@@ -43,7 +43,7 @@
 # define START_P_DIR_Y   	0
 # define START_P_PLANE_X 	0
 # define START_P_PLANE_Y 	0.66
-# define MV_SPEED        	0.038
+# define MV_SPEED        	0.056
 # define ROT_SPEED       	1.7
 # define BUMP_B				-0.000040
 # define AMB_LIGHT       	7
@@ -374,15 +374,6 @@ void				cub3d(t_ray *ray);
 int					handle_press(int keycode, t_ray *ray);
 int					handle_release(int keycode, t_ray *ray);
 int					ft_red_x(t_ray *ray);
-int					wall_col(t_ray *ray, int x, int y);
-int					check_coll(t_ray *ray, int xy);
-void				move_right(t_ray *ray);
-void				move_left(t_ray *ray);
-void				move_back(t_ray *ray);
-void				move_forward(t_ray *ray);
-void				handle_strafe(t_ray *ray);
-void				handle_moving(t_ray *ray);
-
 int					new_movement(t_ray *ray);
 void				ft_rot_dir(t_ray *ray, double ang);
 
