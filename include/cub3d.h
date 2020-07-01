@@ -194,12 +194,6 @@ typedef struct		s_play
 
 typedef struct		s_ray
 {
-	double			play_pos_x;
-	double			play_pos_y;
-	double			play_dir_x;
-	double			play_dir_y;
-	double			play_plane_x;
-	double			play_plane_y;
 	double			ray_dir_x;
 	double			ray_dir_y;
 	double			perp_wall_dist;

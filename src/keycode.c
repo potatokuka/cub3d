@@ -54,16 +54,3 @@ int		handle_release(int keycode, t_ray *ray)
 	return (0);
 }
 
-void	handle_moving(t_ray *ray)
-{
-	if (ray->move_f == 1)
-		move_forward(ray);
-	if (ray->move_b == 1)
-		move_back(ray);
-	if (ray->move_right == 1)
-		move_right(ray);
-	if (ray->move_left == 1)
-		move_left(ray);
-	if ((ray->strafe_r == 1) || (ray->strafe_l == 1))
-		handle_strafe(ray);
-}

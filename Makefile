@@ -23,7 +23,6 @@ SRCS			=	bmp_save.c\
 					input_start.c\
 					keycode.c\
 					main.c\
-					mvmt.c\
 					parse_floor.c\
 					parse_img_data.c\
 					parse_map.c\
@@ -41,7 +40,6 @@ SRCS			=	bmp_save.c\
 					red_x.c\
 					utils.c\
 					valid_map_check.c\
-					wall_col.c\
 					wall_col2.c\
 					rot_dir.c
 CFILES			=	$(SRCS:%=src/%)
