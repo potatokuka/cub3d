@@ -17,7 +17,6 @@ char		*trim_file_line(char *trim)
 	int	i;
 
 	i = 0;
-	printf("Trim Check_%s\n", trim);
 	while (trim[i])
 	{
 		if (trim[i] != '.')
@@ -25,7 +24,6 @@ char		*trim_file_line(char *trim)
 		else
 			return (trim = trim + i);
 	}
-	printf("Trimmed_%s\n", trim);
 	return (trim);
 }
 

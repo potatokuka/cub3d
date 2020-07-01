@@ -53,7 +53,6 @@ void		ft_save_south_text(t_ray *ray, char *path)
 
 void		ft_save_north_text(t_ray *ray, char *path)
 {
-	printf("North Path check_%s\n", path);
 	if (ft_strlen(path) < 7 && ft_strncmp(path, "./pics/", 7) &&
 			ft_strncmp(path + (ft_strlen(path) - 4), ".xpm", 4))
 		put_error("Invalid North Text");
