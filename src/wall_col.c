@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   wall_col2.c                                        :+:    :+:            */
+/*   wall_col.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/30 12:41:19 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 09:29:33 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 16:39:32 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,18 @@ t_vect	ft_yeet_back(char **map, t_vect old)
 	t_vect	update;
 
 	update = old;
-	if (ft_iseq(floor(old.y), old.y) && (int)old.y - 1 > 0 &&
+	if (ft_iseq(floor(old.y), old.y) &&
+		(int)old.y - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y - 1][(int)old.x], "1"))
-		update.y += 0.056;
-	if (ft_iseq(ceil(old.y), old.y) && map[(int)old.y + 1][(int)old.x] == '1')
-		update.y -= 0.056;
+		update.y += 0.05;
+	if (ft_iseq(ceil(old.y), old.y) &&
+		map[(int)old.y + 1][(int)old.x] == '1')
+		update.y -= 0.05;
 	if (ft_iseq(floor(old.x), old.x) && (int)old.x - 1 > 0 &&
 		!ft_chrmatch(map[(int)old.y][(int)old.x - 1], "1"))
-		update.x += 0.056;
+		update.x += 0.05;
 	if (ft_iseq(ceil(old.x), old.x) && map[(int)old.y][(int)old.x + 1] == '1')
-		update.x -= 0.056;
+		update.x -= 0.05;
 	return (update);
 }
 

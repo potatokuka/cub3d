@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 09:21:39 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 16:40:47 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,6 @@ void			get_text_color(t_ray *ray, int y)
 		ray->data.g_color = ft_put_text_north(ray, ray->data.g_color, y);
 }
 
-void			img_to_window(t_ray *ray)
-{
-	if (mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
-			ray->img_ptr, 0, 0))
-		put_error("MLX failed to put image to window");
-}
-
 void			draw_vert_line(t_ray *ray, int x)
 {
 	int	y;
@@ -65,13 +58,11 @@ void			draw_vert_line(t_ray *ray, int x)
 	}
 }
 
-int				render_frame(t_ray *ray)
+int				render_frame_old(t_ray *ray)
 {
 	int	x;
 
 	x = 0;
-	if (ray->moving == 1)
-		new_movement(ray);
 	while (x < ray->win_x)
 	{
 		start_calc(ray, x);
@@ -86,9 +77,22 @@ int				render_frame(t_ray *ray)
 		x++;
 	}
 	cast_sprite(ray);
+	return (0);
+}
+
+int				render_frame(t_ray *ray)
+{
 	if (ray->bmp != 0)
+	{
+		render_frame_old(ray);
 		ft_img_to_bmp(ray);
-	else
-		img_to_window(ray);
+	}
+	mlx_sync(1, ray->img_ptr);
+	new_movement(ray);
+	render_frame_old(ray);
+	if (mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
+		ray->img_ptr, 0, 0))
+		put_error("MLX failed to put image to window");
+	mlx_sync(2, ray->mlx_wind);
 	return (0);
 }
