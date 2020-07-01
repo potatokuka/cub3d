@@ -6,11 +6,28 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/24 13:58:53 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/24 22:57:09 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 11:42:55 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+char		*trim_file_line(char *trim)
+{
+	int	i;
+
+	i = 0;
+	printf("Trim Check_%s\n", trim);
+	while (trim[i])
+	{
+		if (trim[i] != '.')
+			i++;
+		else
+			return (trim = trim + i);
+	}
+	printf("Trimmed_%s\n", trim);
+	return (trim);
+}
 
 char		ft_chrmatch(char c, char *set)
 {

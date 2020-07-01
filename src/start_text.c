@@ -59,7 +59,7 @@ void		start_text_north(t_ray *ray)
 			ray->data.g_text_north, &(ray->text_north.width),
 			&(ray->text_north.height));
 	if (ray->text_north.img_ptr == NULL)
-		put_error("Invalid North Texture Pic");
+		put_error("Invalid North Texture 1");
 	ray->text_north.addr = mlx_get_data_addr(ray->text_north.img_ptr,
 		&(ray->text_north.bits_pp),
 		&(ray->text_north.line_len),

@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 18:04:12 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/01 11:43:37 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,7 +290,7 @@ t_clr				dark_mode(t_clr clr, double distance);
 */
 
 /*
-**	New
+**	Utils
 */
 
 void				ft_img_to_bmp(t_ray *ray);
@@ -301,12 +301,13 @@ char				ft_chrmatch(char c, char *set);
 */
 
 void				ft_input_check(int ac, char **av, t_ray *ray);
-void				ft_valid_text(t_ray *ray, char **info);
-void				valid_sprite_check(t_ray *ray, char **info);
+void				ft_valid_text(t_ray *ray, char **info, char *line);
+void				valid_sprite_check(t_ray *ray, char *line);
 void				valid_flr_ceiling(t_ray *ray, char **info);
 void				functioncollar(t_ray *ray, char *line);
 void				init(t_ray *ray);
 bool				valid_file(char *str);
+char				*trim_file_line(char *trim);
 
 /*
 **	Map

@@ -1,7 +1,7 @@
 R 500 500
 NO ./pics/goop.xpm
 SO ./pics/leakybuzz.xpm
-WE ./pics/goop.xpm
+WE ./pics/woody.xpm
 EA ./pics/lookyface.xpm
 S ./pics/swolmo.xpm
 F 50,0,0

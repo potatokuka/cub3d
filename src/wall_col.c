@@ -1,120 +1,79 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   wall_col.c                                         :+:    :+:            */
+/*   wall_col2.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 16:10:36 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/17 11:22:40 by greed         ########   odam.nl         */
+/*   Created: 2020/06/30 12:41:19 by greed         #+#    #+#                 */
+/*   Updated: 2020/07/01 09:29:33 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <math.h>
 
-static int		len_start(char *str)
+int		ft_iseq(double c1, double c2)
 {
-	int		len;
-	int		i;
-	int		start;
-
-	i = 0;
-	start = 0;
-	len = ft_strlen(str);
-	if (!len)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] == 'O')
-		{
-			start = i;
-			break ;
-		}
-		i++;
-	}
-	return (start);
+	if (c1 - c2 >= -0.01 && c1 - c2 <= 0.01)
+		return (1);
+	return (0);
 }
 
-static int		height_start(char **map, int max_height, int x)
+t_vect	ft_yeet_back(char **map, t_vect old)
 {
-	int		i;
-	int		start;
+	t_vect	update;
 
-	start = 0;
-	i = 0;
-	while (i < max_height)
-	{
-		if (map[i][x] == 'O')
-		{
-			start = i;
-			break ;
-		}
-		i++;
-	}
-	return (start);
+	update = old;
+	if (ft_iseq(floor(old.y), old.y) && (int)old.y - 1 > 0 &&
+		!ft_chrmatch(map[(int)old.y - 1][(int)old.x], "1"))
+		update.y += 0.056;
+	if (ft_iseq(ceil(old.y), old.y) && map[(int)old.y + 1][(int)old.x] == '1')
+		update.y -= 0.056;
+	if (ft_iseq(floor(old.x), old.x) && (int)old.x - 1 > 0 &&
+		!ft_chrmatch(map[(int)old.y][(int)old.x - 1], "1"))
+		update.x += 0.056;
+	if (ft_iseq(ceil(old.x), old.x) && map[(int)old.y][(int)old.x + 1] == '1')
+		update.x -= 0.056;
+	return (update);
 }
 
-static int		height_end(char **map, int max_height, int x)
+void	ft_update_pos(t_ray *ray, t_vect incr, double speed)
 {
-	int		i;
-	int		end;
+	char	**map;
+	t_vect	pos;
+	t_vect	new_pos;
 
-	i = 0;
-	i = max_height;
-	end = 0;
-	while (i > 0)
-	{
-		if (map[i][x] == 'O')
-		{
-			end = i;
-			break ;
-		}
-		i--;
-	}
-	return (end);
+	pos = ray->play.pos;
+	map = ray->map_array;
+	pos.x += (speed * incr.x);
+	pos.y += (speed * incr.y);
+	new_pos.x = ray->play.pos.x;
+	new_pos.y = ray->play.pos.y;
+	if (pos.x > 0 && !ft_chrmatch(map[(int)ray->play.pos.y][(int)pos.x], "1"))
+		new_pos.x = pos.x;
+	if (pos.y > 0 && !ft_chrmatch(map[(int)pos.y][(int)ray->play.pos.x], "1"))
+		new_pos.y = pos.y;
+	new_pos = ft_yeet_back(ray->map_array, new_pos);
+	ray->play.pos = new_pos;
 }
 
-static int		len_end(char *str)
+int		new_movement(t_ray *ray)
 {
-	int		len;
-	int		end;
-
-	end = 0;
-	len = ft_strlen(str);
-	if (!len)
-		return (-1);
-	while (len)
+	if (ray->moving == 1)
 	{
-		if (str[len] == 'O')
-		{
-			end = len;
-			return (end);
-			break ;
-		}
-		len--;
+		if (ray->strafe_l)
+			ft_rot_dir(ray, ROT_SPEED);
+		if (ray->strafe_r)
+			ft_rot_dir(ray, -ROT_SPEED);
+		if (ray->move_right)
+			ft_update_pos(ray, ray->play.plane, MV_SPEED);
+		if (ray->move_left)
+			ft_update_pos(ray, ray->play.plane, -MV_SPEED);
+		if (ray->move_f)
+			ft_update_pos(ray, ray->play.dir, MV_SPEED);
+		if (ray->move_b)
+			ft_update_pos(ray, ray->play.dir, -MV_SPEED);
 	}
-	return (end);
-}
-
-int				wall_col(t_ray *ray, int x, int y)
-{
-	int		len;
-	int		max_wid;
-	int		min_wid;
-	int		max_height;
-	int		min_height;
-
-	if (!ray->map_array[y])
-		return (-1);
-	min_wid = len_start(ray->map_array[y]);
-	max_wid = len_end(ray->map_array[y]);
-	min_height = height_start(ray->map_array, ray->map_height - 1, x);
-	max_height = height_end(ray->map_array, ray->map_height - 1, x);
-	if (x < min_wid || x > max_wid || y < min_height || y > max_height
-		|| ray->map_array[y][x] != 'O')
-		return (-1);
-	len = ft_strlen(ray->map_array[y]);
-	if (!len)
-		return (-1);
 	return (0);
 }

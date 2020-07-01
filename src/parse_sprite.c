@@ -14,7 +14,8 @@
 
 void		ft_save_sprite(t_ray *ray, char *path)
 {
-	if (ft_strncmp(path, "./pics/", 7))
+	if (ft_strlen(path) < 7 && ft_strncmp(path, "./pics/", 7) &&
+			ft_strncmp(path + (ft_strlen(path) - 4), ".xpm", 4))
 		put_error("Invalid Sprite Text");
 	else
 	{
@@ -24,18 +25,15 @@ void		ft_save_sprite(t_ray *ray, char *path)
 	}
 }
 
-void		valid_sprite_check(t_ray *ray, char **info)
+void		valid_sprite_check(t_ray *ray, char *line)
 {
-	int i;
+	char *trim;
 
-	i = 0;
+	trim = line;
 	ray->vars++;
-	while (info[i])
-		i++;
-	if (i != 2)
-		put_error("Invalid sprite arg");
-	if (info[1][0] != '.')
-		put_error("Invalid sprite arg");
+	trim = trim_file_line(trim);
+	if (!trim)
+		put_error("invalid sprite argument");
 	else
-		ft_save_sprite(ray, info[1]);
+		ft_save_sprite(ray, trim);
 }
