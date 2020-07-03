@@ -75,13 +75,17 @@ void		ft_valid_text(t_ray *ray, char **info, char *line)
 		put_error("invalid text argument");
 	else
 	{
-		if (info[0][0] == 'N' && info[0][1] == 'O' && (!info[0][2] || info[0][2] == '.'))
+		if (info[0][0] == 'N' && info[0][1] == 'O'
+				&& (!info[0][2] || info[0][2] == '.'))
 			ft_save_north_text(ray, trim);
-		else if ((info[0][0] == 'S' && info[0][1] == 'O') && (!info[0][2] || info[0][2] == '.'))
+		else if ((info[0][0] == 'S' && info[0][1] == 'O')
+				&& (!info[0][2] || info[0][2] == '.'))
 			ft_save_south_text(ray, trim);
-		else if ((info[0][0] == 'E' && info[0][1] == 'A') && (!info[0][2] || info[0][2] == '.'))
+		else if ((info[0][0] == 'E' && info[0][1] == 'A')
+				&& (!info[0][2] || info[0][2] == '.'))
 			ft_save_east_text(ray, trim);
-		else if ((info[0][0] == 'W' && info[0][1] == 'E') && (!info[0][2] || info[0][2] == '.'))
+		else if ((info[0][0] == 'W' && info[0][1] == 'E')
+				&& (!info[0][2] || info[0][2] == '.'))
 			ft_save_west_text(ray, trim);
 	}
 }
