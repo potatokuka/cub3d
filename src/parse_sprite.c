@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 13:47:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/12 15:12:18 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/03 21:56:21 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void		valid_sprite_check(t_ray *ray, char *line)
 
 	trim = line;
 	ray->vars++;
+	if (line[1] != ' ' && line[1] != '.')
+		put_error("invalid sprite argument 1");
 	trim = trim_file_line(trim);
 	if (!trim)
 		put_error("invalid sprite argument");

@@ -1,5 +1,5 @@
-R 0 1
-NO./pics/goop.xpm
+R 600 600
+NO ./pics/goop.xpm
 SO ./pics/woody.xpm
 WE ./pics/woody.xpm
 EA ./pics/lookyface.xpm
