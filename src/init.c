@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 16:29:37 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 20:55:56 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/05 19:39:36 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void		change_start_dir(t_ray *ray)
 	double		old_plane_x;
 	double		rotate;
 
-	if (ray->start_dir == 'S')
-		rotate = M_PI;
 	if (ray->start_dir == 'E')
+		rotate = M_PI;
+	if (ray->start_dir == 'S')
 		rotate = (DEG270);
-	if (ray->start_dir == 'W')
+	if (ray->start_dir == 'N')
 		rotate = (DEG90);
+	ft_test_vars(ray);
 	old_dir_x = ray->play.dir.x;
 	ray->play.dir.x = ray->play.dir.x * cos(rotate) -
 						ray->play.dir.y * sin(rotate);
@@ -44,7 +45,7 @@ void		init(t_ray *ray)
 	ray->play.plane.y = 0.66;
 	ray->map_x = 0;
 	ray->map_y = 0;
-	if (ray->start_dir != 'N')
+	if (ray->start_dir != 'W')
 		change_start_dir(ray);
 	ray->mlx_ptr = mlx_init();
 	if (ray->mlx_ptr == NULL)

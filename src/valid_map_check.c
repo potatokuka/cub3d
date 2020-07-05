@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:48:51 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 18:05:30 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/05 18:51:49 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ bool		vlad_impaler(t_ray *ray)
 		ray->map_wid = width;
 		y++;
 	}
+	print_map(ray);
 	return (true);
 }

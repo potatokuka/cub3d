@@ -69,6 +69,7 @@ void		save_sprites(t_ray *ray)
 	int		sprite_num;
 
 	y = 0;
+	x = 0;
 	g_sprite_list = malloc(sizeof(t_sprite_list) * ray->data.g_num_sprite);
 	sprite_num = 0;
 	if (ray->nsew != 1)

@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 16:40:47 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/05 19:47:08 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void			ft_put_pixel(t_ray *ray, unsigned int color, int y, int x)
 void			get_text_color(t_ray *ray, int y)
 {
 	if (ray->side == 1 && ray->ray_dir_y > 0)
-		ray->data.g_color = ft_put_text_east(ray, ray->data.g_color, y);
-	else if (ray->side == 1 && ray->ray_dir_y < 0)
-		ray->data.g_color = ft_put_text_west(ray, ray->data.g_color, y);
-	else if (ray->side == 0 && ray->ray_dir_x > 0)
 		ray->data.g_color = ft_put_text_south(ray, ray->data.g_color, y);
-	else
+	else if (ray->side == 1 && ray->ray_dir_y < 0)
 		ray->data.g_color = ft_put_text_north(ray, ray->data.g_color, y);
+	else if (ray->side == 0 && ray->ray_dir_x > 0)
+		ray->data.g_color = ft_put_text_east(ray, ray->data.g_color, y);
+	else
+		ray->data.g_color = ft_put_text_west(ray, ray->data.g_color, y);
 }
 
 void			draw_vert_line(t_ray *ray, int x)
