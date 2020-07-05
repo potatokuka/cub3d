@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 18:34:10 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 18:06:59 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/05 21:37:40 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		save_sprites(t_ray *ray)
 			{
 				g_sprite_list[sprite_num].x = x;
 				ray->map_array[y][x] = 'O';
-				g_sprite_list[sprite_num].y = y;
+				g_sprite_list[sprite_num].y = (y - 0.82);
 				sprite_num++;
 			}
 			x++;

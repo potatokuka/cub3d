@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 16:29:37 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/05 19:39:36 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/05 20:19:45 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void		change_start_dir(t_ray *ray)
 		rotate = (DEG270);
 	if (ray->start_dir == 'N')
 		rotate = (DEG90);
-	ft_test_vars(ray);
 	old_dir_x = ray->play.dir.x;
 	ray->play.dir.x = ray->play.dir.x * cos(rotate) -
 						ray->play.dir.y * sin(rotate);
