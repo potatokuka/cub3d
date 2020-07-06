@@ -6,7 +6,7 @@
 #    By: greed <greed@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/09 14:50:26 by greed         #+#    #+#                  #
-#    Updated: 2020/07/06 12:36:07 by greed         ########   odam.nl          #
+#    Updated: 2020/07/06 15:53:58 by greed         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRCS			=	bmp_save.c\
 					valid_map_check.c\
 					wall_col.c\
 					rot_dir.c\
-					map_handling.c
+					map_handling.c\
+					new_dda.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST 

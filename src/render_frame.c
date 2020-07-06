@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 13:14:37 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 14:41:01 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,29 @@ void			draw_vert_line(t_ray *ray, int x)
 	}
 }
 
+void			ft_cast_ray(t_ray *ray)
+{
+	t_texdata	tex;
+	t_dda		dda;
+	t_line		line;
+	double		*dist;
+	int			x;
+
+	x = 0;
+	dist = ray->z_buff;
+	while (x < ray->win_x)
+	{
+		ray->play.cast = ray_dir(ray, x);
+		dist[x] = dist_calc(ray, &dda);
+		line = line_data(ray, dist[x], x);
+		tex = ft_texdata_get(ray, &dda, dist[x], line);
+		ft_draw_line(ray, &dda, line, tex);
+		x++;
+	}
+	cast_sprite(ray);
+	return ;
+}
+
 int				render_frame_old(t_ray *ray)
 {
 	int	x;
@@ -84,12 +107,12 @@ int				render_frame(t_ray *ray)
 {
 	if (ray->bmp != 0)
 	{
-		render_frame_old(ray);
+		ft_cast_ray(ray);
 		ft_img_to_bmp(ray);
 	}
 	mlx_sync(1, ray->img_ptr);
 	new_movement(ray);
-	render_frame_old(ray);
+	ft_cast_ray(ray);
 	if (mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
 		ray->img_ptr, 0, 0))
 		put_error("MLX failed to put image to window");

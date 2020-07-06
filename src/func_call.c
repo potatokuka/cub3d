@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 17:12:55 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/03 21:45:33 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 14:02:58 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		func_call_two(t_ray *ray, char **info, char *line, int die)
 {
-	if (line[0] == 'R' && line[1] == ' ')
+	if (line[0] == 'R')
 		ft_get_res(ray, info);
 	else if (line[0] == 'N' && line[1] == 'O')
 		ft_valid_text(ray, info, line);

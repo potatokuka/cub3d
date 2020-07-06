@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 13:40:12 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 15:53:48 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,12 @@ typedef struct		s_data
 **	Textures
 */
 
+typedef struct		s_texdata
+{
+	int				x;
+	double			y_step;
+}					t_texdata;
+
 typedef struct		s_text
 {
 	double			wall_x;
@@ -131,6 +137,14 @@ enum		e_check
 {
 	VALID,
 	INVALID,
+};
+
+enum		e_id
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST,
 };
 
 /*
@@ -179,6 +193,26 @@ typedef	struct		s_sprite
 **	All working data for Ray Casting (RAY)
 */
 
+typedef	struct		s_line
+{
+	int				x;
+	int				len;
+	int				start;
+	int				end;
+}					t_line;
+
+typedef struct		s_coord
+{
+	int				x;
+	int				y;
+}					t_coord;
+
+typedef	struct		s_cast
+{
+	t_vect			pos;
+	t_vect			dir;
+}					t_cast;
+
 typedef struct		s_vect
 {
 	double			x;
@@ -190,7 +224,19 @@ typedef struct		s_play
 	t_vect			pos;
 	t_vect			dir;
 	t_vect			plane;
+	t_cast			cast;
 }					t_play;
+
+typedef struct		s_dda
+{
+	t_vect			sidedist;
+	t_vect			delta_dist;
+	t_coord			mappos;
+	t_coord			step;
+	t_coord			tex;
+	int				texstep;
+	int				side;
+}					t_dda;
 
 typedef struct		s_ray
 {
@@ -370,6 +416,8 @@ void				comb_sort_ex(int *order, double *dist, t_sort *sort);
 void				start_text_sprite(t_ray *ray);
 void				cub3d(t_ray *ray);
 double				ft_abs(double n);
+t_line				line_data(t_ray *ray, double dist, int x);
+t_texdata			ft_texdata_get(t_ray *ray, t_dda *dda, double dist, t_line line);
 
 /*
 **	Movement
