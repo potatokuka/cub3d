@@ -6,11 +6,18 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/16 11:34:31 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/24 17:30:33 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 13:39:50 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+double		ft_abs(double n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
+}
 
 void	flood_check(t_ray *ray, int x, int y)
 {

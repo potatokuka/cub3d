@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 11:43:37 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 13:40:12 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,6 +319,8 @@ char				ft_start_dir(t_ray *ray, char *str);
 void				map_read_start(t_ray *ray, char *line);
 void				char_array_my_map(t_ray *ray);
 int					flood_fill_map(t_ray *ray, int x, int y);
+void				ft_validate_map(t_ray *ray);
+int					ft_map_size(char **map);
 
 /*
 **	Error and Free
@@ -367,6 +369,7 @@ void				comb_sort(int *order, double *dist, int amount);
 void				comb_sort_ex(int *order, double *dist, t_sort *sort);
 void				start_text_sprite(t_ray *ray);
 void				cub3d(t_ray *ray);
+double				ft_abs(double n);
 
 /*
 **	Movement

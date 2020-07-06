@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:48:51 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/05 18:51:49 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 13:12:53 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int			map_check_2(t_ray *ray, int x, int y)
 	len = ft_strlen_lib(ray->map_array[y]);
 	while (ray->map_array[y][x])
 	{
-		if (ray->map_array[y][x] == '2' || ray->map_array[y][x] == 'U')
-			ray->data.g_num_sprite++;
 		if (ft_strchr_lib("NSEW", ray->map_array[y][x]))
 			set_play_pos(ray, x, y);
 		x++;
@@ -64,6 +62,6 @@ bool		vlad_impaler(t_ray *ray)
 		ray->map_wid = width;
 		y++;
 	}
-	print_map(ray);
+	ft_validate_map(ray);
 	return (true);
 }

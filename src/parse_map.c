@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 18:10:00 by greed         #+#    #+#                 */
-/*   Updated: 2020/05/25 17:58:25 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 12:50:16 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,17 @@ void		char_array_my_map(t_ray *ray)
 	ft_bzero(xy, 8);
 	size_len[0] = lst_size(ray->map_lst);
 	ray->map_height = size_len[0];
-	tmp = (char **)malloc(sizeof(char *) * size_len[0]);
+	tmp = (char **)malloc(sizeof(char *) * size_len[0] + 1);
 	lst = ray->map_lst;
 	while (xy[1] < size_len[0])
 	{
 		xy[0] = 0;
 		str = lst->content;
-		size_len[1] = ft_strlen_lib(str);
 		tmp[xy[1]] = ft_strdup_lib(str);
 		lst = lst->next;
 		xy[1]++;
 	}
+	tmp[xy[1]] = 0;
 	ray->map_array = tmp;
 }
 

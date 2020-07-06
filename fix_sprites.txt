@@ -1,0 +1,6 @@
+run an edit flood fill on a temp map.
+
+change all the Os to Xs
+change all the Us to Xs, and each time you change, add to sprite num
+delete temp map
+

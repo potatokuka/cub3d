@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:38:40 by greed         #+#    #+#                 */
-/*   Updated: 2020/06/30 20:54:36 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 13:49:36 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,23 @@ void			cont_calc(t_ray *ray)
 	if (ray->ray_dir_x < 0)
 	{
 		ray->step_x = -1;
-		ray->side_dist_x = (ray->play.pos.x - ray->map_x) * ray->delta_dist_x;
+		ray->side_dist_x = (ray->play.pos.x - (int)ray->play.pos.x) * ray->delta_dist_x;
 	}
 	else
 	{
 		ray->step_x = 1;
-		ray->side_dist_x = (ray->map_x + 1.0 - ray->play.pos.x) *
+		ray->side_dist_x = ((int)ray->play.pos.x + 1.0 - ray->play.pos.x) *
 							ray->delta_dist_x;
 	}
 	if (ray->ray_dir_y < 0)
 	{
 		ray->step_y = -1;
-		ray->side_dist_y = (ray->play.pos.y - ray->map_y) * ray->delta_dist_y;
+		ray->side_dist_y = (ray->play.pos.y - (int)ray->play.pos.y) * ray->delta_dist_y;
 	}
 	else
 	{
 		ray->step_y = 1;
-		ray->side_dist_y = (ray->map_y + 1.0 - ray->play.pos.y) *
+		ray->side_dist_y = ((int)ray->play.pos.y + 1.0 - ray->play.pos.y) *
 							ray->delta_dist_y;
 	}
 }
@@ -91,7 +91,9 @@ void			start_calc(t_ray *ray, int x)
 	ray->map_y = (int)(ray->play.pos.y);
 	ray->delta_dist_x = sqrt(1 + pow(ray->ray_dir_y, 2) /
 		pow(ray->ray_dir_x, 2));
+	// ray->delta_dist_x = ft_abs(1.0 / (double)ray->ray_dir_x);
 	ray->delta_dist_y = sqrt(1 + pow(ray->ray_dir_x, 2) /
 		pow(ray->ray_dir_y, 2));
+	// ray->delta_dist_y = ft_abs(1.0 /(double)ray->ray_dir_y);
 	cont_calc(ray);
 }
