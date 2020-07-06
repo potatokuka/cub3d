@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 15:53:48 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 16:55:21 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,17 +207,18 @@ typedef struct		s_coord
 	int				y;
 }					t_coord;
 
+typedef struct		s_vect
+{
+	double			x;
+	double			y;
+}					t_vect;
+
 typedef	struct		s_cast
 {
 	t_vect			pos;
 	t_vect			dir;
 }					t_cast;
 
-typedef struct		s_vect
-{
-	double			x;
-	double			y;
-}					t_vect;
 
 typedef struct		s_play
 {
@@ -396,7 +397,7 @@ unsigned int		ft_put_text_south(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_text_east(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_text_west(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_sprite(t_ray *ray, unsigned int color, int y);
-void				ft_put_pixel(t_ray *ray, unsigned int color, int y, int x);
+void				ft_put_pixel(t_ray *ray, int x, int y, unsigned int color);
 void				draw_vert_line(t_ray *ray, int x);
 void				start_calc(t_ray *ray, int x);
 void				perform_dda(t_ray *ray);
@@ -418,7 +419,11 @@ void				cub3d(t_ray *ray);
 double				ft_abs(double n);
 t_line				line_data(t_ray *ray, double dist, int x);
 t_texdata			ft_texdata_get(t_ray *ray, t_dda *dda, double dist, t_line line);
-
+void				ft_draw_line(t_ray *ray, t_dda *dda, t_line line, t_texdata tex);
+t_cast				ray_dir(t_ray *ray, int x);
+double				dist_calc(t_ray *ray, t_dda *dda);
+t_color				ft_texture_get(t_ray *ray, t_dda *dda, int x, int y);
+int					ft_set_side(int nb, int opt1, int opt2);
 /*
 **	Movement
 */
