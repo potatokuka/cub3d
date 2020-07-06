@@ -6,11 +6,40 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 18:26:19 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/05 19:35:00 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/06 16:10:33 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+t_color			ft_texture_get(t_ray *ray, t_dda *dda, int x, int y)
+{
+char	*image;
+t_color	color;
+
+if (dda->side == NORTH)
+{
+	image = ray->text_north.addr;
+	image += (y * ray->text_north.line_len + (x * (ray->text_north.bits_pp / 8)));
+}
+if (dda->side == SOUTH)
+{
+	image = ray->text_south.addr;
+	image += (y * ray->text_south.line_len + (x * (ray->text_south.bits_pp / 8)));
+}
+if (dda->side == EAST)
+{
+	image = ray->text_east.addr;
+	image += (y * ray->text_east.line_len + (x * (ray->text_east.bits_pp / 8)));
+}
+if (dda->side == WEST)
+{
+	image = ray->text_west.addr;
+	image += (y * ray->text_west.line_len + (x * (ray->text_west.bits_pp / 8)));
+}
+color.color = *(unsigned int *)image;
+return (color);
+}
 
 unsigned int	ft_put_text_north(t_ray *ray, unsigned int color, int y)
 {
