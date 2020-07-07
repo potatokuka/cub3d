@@ -6,31 +6,21 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/07 12:29:00 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 12:59:12 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void			ft_put_pixel(t_ray *ray, int x, int y, unsigned int color)
+void			ft_put_pixel(t_ray *ray, unsigned int color, int y, int x)
 {
-	// int	pos;
+	int	pos;
 
-	// pos = ((y * ray->line_len) + (x * (ray->bits_pp / 8)));
-	// if (ray->curr_img == 0)
-	// 	*((unsigned int *)(ray->addr + pos)) = color;
-	// else
-	// 	*((unsigned int *)(ray->addr2 + pos)) = color;
-	int			pos;
-	/* char		*image; */
-
-	/* printf("need to check these---\n"); */
-	/* printf("x_%d ** y_%d ** color_%d\n", x, y, color); */
 	pos = ((y * ray->line_len) + (x * (ray->bits_pp / 8)));
-	/* image = ray->addr; */
-	/* image += (y * ray->line_len + (x * (ray->bits_pp / 8))); */
-	/* *(unsigned int *)image = color; */
-	*((unsigned int *)(ray->addr + pos)) = color;
+	if (ray->curr_img == 0)
+		*((unsigned int *)(ray->addr + pos)) = color;
+	else
+		*((unsigned int *)(ray->addr2 + pos)) = color;
 }
 
 void			get_text_color(t_ray *ray, int y)
@@ -60,18 +50,18 @@ void			draw_vert_line(t_ray *ray, int x)
 	y = 0;
 	while (y <= ray->draw_start)
 	{
-		ft_put_pixel(ray, x, y, ray->ceil_clr);
+		ft_put_pixel(ray, ray->ceil_clr, y, x);
 		y++;
 	}
 	while (y <= ray->draw_end)
 	{
 		get_text_color(ray, y);
-		ft_put_pixel(ray, x, y, ray->data.g_color);
+		ft_put_pixel(ray, ray->data.g_color, y, x);
 		y++;
 	}
 	while (y < ray->win_y)
 	{
-		ft_put_pixel(ray, x, y, ray->flr_color);
+		ft_put_pixel(ray, ray->flr_color, y, x);
 		y++;
 	}
 }

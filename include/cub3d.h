@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 16:55:21 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 12:59:54 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,6 +283,7 @@ typedef struct		s_ray
 	int				wall_height;
 	int				move_left;
 	int				move_right;
+	int				time;
 	int				strafe_l;
 	int				strafe_r;
 	int				vars;
@@ -397,7 +398,7 @@ unsigned int		ft_put_text_south(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_text_east(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_text_west(t_ray *ray, unsigned int color, int y);
 unsigned int		ft_put_sprite(t_ray *ray, unsigned int color, int y);
-void				ft_put_pixel(t_ray *ray, int x, int y, unsigned int color);
+void				ft_put_pixel(t_ray *ray, unsigned int color, int y, int x);
 void				draw_vert_line(t_ray *ray, int x);
 void				start_calc(t_ray *ray, int x);
 void				perform_dda(t_ray *ray);
