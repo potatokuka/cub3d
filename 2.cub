@@ -1,4 +1,4 @@
-R 40 40
+R 400 400
 NO ./pics/goop.xpm
 SO ./pics/woody.xpm
 WE ./pics/leakybuzz.xpm

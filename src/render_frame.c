@@ -66,29 +66,6 @@ void			draw_vert_line(t_ray *ray, int x)
 	}
 }
 
-void			ft_cast_ray(t_ray *ray)
-{
-	t_texdata	tex;
-	t_dda		dda;
-	t_line		line;
-	double		*dist;
-	int			x;
-
-	x = 0;
-	dist = ray->z_buff;
-	while (x < ray->win_x)
-	{
-		ray->play.cast = ray_dir(ray, x);
-		dist[x] = dist_calc(ray, &dda);
-		line = line_data(ray, dist[x], x);
-		tex = ft_texdata_get(ray, &dda, dist[x], line);
-		ft_draw_line(ray, &dda, line, tex);
-		x++;
-	}
-	cast_sprite(ray);
-	return ;
-}
-
 int				render_frame_old(t_ray *ray)
 {
 	int	x;
