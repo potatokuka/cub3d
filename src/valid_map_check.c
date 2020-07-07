@@ -6,15 +6,45 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 09:48:51 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 13:12:53 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 13:55:01 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <math.h>
+
+double		ft_deg2rad(char dir)
+{
+	double angle;	
+
+	angle = 0;
+	if (dir == 'N')
+		angle = 90;
+	if (dir == 'S')
+		angle = 270;
+	if (dir == 'W')
+		angle = 180;
+	if (dir == 'E')
+		angle = 0;
+	return (angle * (M_PI / 180));
+}
+
+void		ft_direction_init(t_ray *ray)
+{
+	double 	direction;
+
+	direction = ft_deg2rad(ray->start_dir);
+	ray->play.dir.x = cos(direction);
+	ray->play.plane.x = sin(direction);
+	ray->play.dir.y = -sin(direction);
+	ray->play.plane.y = cos(direction);
+	printf("print test -- %f\n", direction);
+}
 
 void		set_play_pos(t_ray *ray, int x, int y)
 {
 	ray->start_dir = (ft_start_dir(ray, &ray->map_array[y][x]));
+	/* ft_direction_init(ray); */
 	ray->nsew += 1;
 	ray->play.pos.x = (x + 0.48);
 	ray->play.pos.y = (y + 0.43);

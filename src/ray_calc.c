@@ -68,7 +68,7 @@ void			cont_calc(t_ray *ray)
 		if (ray->time < 100)
 		{
 			ray->time += 1;
-			printf("first if\n");
+			/* printf("first if\n"); */
 		}		
 		ray->step_x = -1;
 		ray->side_dist_x = (ray->play.pos.x - ray->map_x) * ray->delta_dist_x;
@@ -78,7 +78,7 @@ void			cont_calc(t_ray *ray)
 		if (ray->time < 100)
 		{
 			ray->time += 1;
-			printf("first else\n");
+			/* printf("first else\n"); */
 		}
 		ray->step_x = 1;
 		ray->side_dist_x = (ray->map_x + 1.0 - ray->play.pos.x) *
@@ -89,7 +89,7 @@ void			cont_calc(t_ray *ray)
 		if (ray->time < 100)
 		{
 			ray->time += 1;
-			printf("2nd if\n");
+			/* printf("2nd if\n"); */
 		}		
 		ray->step_y = -1;
 		ray->side_dist_y = (ray->play.pos.y - ray->map_y) * ray->delta_dist_y;
@@ -99,7 +99,7 @@ void			cont_calc(t_ray *ray)
 		if (ray->time < 100)
 		{
 			ray->time += 1;
-			printf("2nd else\n");
+			/* printf("2nd else\n"); */
 		}		
 		ray->step_y = 1;
 		ray->side_dist_y = (ray->map_y + 1.0 - ray->play.pos.y) *
@@ -120,5 +120,7 @@ void			start_calc(t_ray *ray, int x)
 		pow(ray->ray_dir_x, 2));
 	ray->delta_dist_y = sqrt(1 + pow(ray->ray_dir_x, 2) /
 		pow(ray->ray_dir_y, 2));
+	/* ray->delta_dist_x = ft_abs(1.0 / (double)(ray->ray_dir_x)); */
+	/* ray->delta_dist_y = ft_abs(1.0 / (double)(ray->ray_dir_y)); */
 	cont_calc(ray);
 }

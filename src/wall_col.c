@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/30 12:41:19 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 16:39:32 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 17:15:08 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int		new_movement(t_ray *ray)
 	if (ray->moving == 1)
 	{
 		if (ray->strafe_l)
-			ft_rot_dir(ray, ROT_SPEED);
-		if (ray->strafe_r)
 			ft_rot_dir(ray, -ROT_SPEED);
+		if (ray->strafe_r)
+			ft_rot_dir(ray, ROT_SPEED);
 		if (ray->move_right)
 			ft_update_pos(ray, ray->play.plane, MV_SPEED);
 		if (ray->move_left)

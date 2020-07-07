@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/07 12:59:54 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 16:59:48 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -369,6 +369,7 @@ void				char_array_my_map(t_ray *ray);
 int					flood_fill_map(t_ray *ray, int x, int y);
 void				ft_validate_map(t_ray *ray);
 int					ft_map_size(char **map);
+void				ft_direction_init(t_ray *ray);
 
 /*
 **	Error and Free
