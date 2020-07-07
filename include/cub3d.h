@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/07 16:59:48 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 23:05:05 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -430,11 +430,17 @@ int					ft_set_side(int nb, int opt1, int opt2);
 **	Movement
 */
 
+void				move_forward(t_ray *ray);
+void				move_back(t_ray *ray);
+void				move_right(t_ray *ray);
+void				handle_strafe(t_ray *ray);
+void				move_left(t_ray *ray);
 int					handle_press(int keycode, t_ray *ray);
 int					handle_release(int keycode, t_ray *ray);
 int					ft_red_x(t_ray *ray);
 int					new_movement(t_ray *ray);
 void				ft_rot_dir(t_ray *ray, double ang);
+int					wall_col(t_ray *ray, int x, int y);
 
 /*
 **	Testing
