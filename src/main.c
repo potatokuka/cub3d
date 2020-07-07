@@ -22,6 +22,7 @@ int		main(int ac, char **av)
 		put_error("Incorrect starting position");
 	set_floor_ceiling(&ray);
 	init(&ray);
+	print_map(&ray);
 	if (ac)
 		cub3d(&ray);
 	mlx_destroy_window(ray.mlx_ptr, ray.mlx_wind);

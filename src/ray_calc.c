@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:38:40 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 14:24:43 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 12:25:21 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ int				ft_set_side(int nb, int opt1, int opt2)
 
 void			calc_wall_height(t_ray *ray)
 {
-	if (ray->side == EAST || ray->side == WEST)
+	// if (ray->side == EAST || ray->side == WEST)
+	if (ray->side == 0)
 		ray->perp_wall_dist = (ray->map_x - ray->play.pos.x +
-								(1 - ray->step_x) / 2) / ray->play.dir.x;
+								(1 - ray->step_x) / 2) / ray->ray_dir_x;
+								// (1 - ray->step_x) / 2) / ray->play.dir.x;
 	else
 		ray->perp_wall_dist = (ray->map_y - ray->play.pos.y +
-								(1 - ray->step_y) / 2) / ray->play.dir.y;
-	ray->line_height = (ray->win_y / ray->perp_wall_dist);
+								(1 - ray->step_y) / 2) / ray->ray_dir_y;
+	ray->line_height = (int)(ray->win_y / ray->perp_wall_dist);
+	// 	ray->perp_wall_dist = (ray->map_y - ray->play.pos.y +
+	// 							(1 - ray->step_y) / 2) / ray->play.dir.y;
+	// ray->line_height = (ray->win_y / ray->perp_wall_dist);
 	ray->draw_start = -ray->line_height / 2 + ray->win_y / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
@@ -44,22 +49,25 @@ void			perform_dda(t_ray *ray)
 	hit = 0;
 	while (hit == 0)
 	{
-		if (ray->side_dist_y > ray->side_dist_x)
+		// if (ray->side_dist_y > ray->side_dist_x)
+		if (ray->side_dist_x < ray->side_dist_y)
 		{
 			ray->side_dist_x += ray->delta_dist_x;
 			ray->map_x += ray->step_x;
-			ray->side = ft_set_side(ray->step_x, WEST, EAST);
+			// ray->side = ft_set_side(ray->step_x, WEST, EAST);
+			ray->side = 0;
 		}
 		else
 		{
 			ray->side_dist_y += ray->delta_dist_y;
 			ray->map_y += ray->step_y;
 			ray->side = ft_set_side(ray->step_y, NORTH, SOUTH);
+			ray->side = 1;
 		}
-		if (ray->map_y < 0 || ray->map_x < 0 ||
-			!ray->map_array[ray->map_y][ray->map_x] ||
-			ray->map_array[ray->map_y][ray->map_x] == '1')
-		// if (ray->map_array[ray->map_y][ray->map_x] == '1')
+		// if (ray->map_y < 0 || ray->map_x < 0 ||
+		// 	!ray->map_array[ray->map_y][ray->map_x] ||
+		// 	ray->map_array[ray->map_y][ray->map_x] == '1')
+		if (ray->map_array[ray->map_y][ray->map_x] == '1')
 			hit = 1;
 	}
 }
@@ -69,23 +77,27 @@ void			cont_calc(t_ray *ray)
 	if (ray->ray_dir_x < 0)
 	{
 		ray->step_x = -1;
-		ray->side_dist_x = (ray->play.pos.x - (int)ray->play.pos.x) * ray->delta_dist_x;
+		ray->side_dist_x = (ray->play.pos.x - ray->map_x) * ray->delta_dist_x;
+		// ray->side_dist_x = (ray->play.pos.x - (int)ray->play.pos.x) * ray->delta_dist_x;
 	}
 	else
 	{
 		ray->step_x = 1;
-		ray->side_dist_x = ((int)ray->play.pos.x + 1.0 - ray->play.pos.x) *
-							ray->delta_dist_x;
+		ray->side_dist_x = (ray->map_x + 1.0 - ray->play.pos.x) * ray->delta_dist_x;
+		// ray->side_dist_x = ((int)ray->play.pos.x + 1.0 - ray->play.pos.x) *
+		// 					ray->delta_dist_x;
 	}
 	if (ray->ray_dir_y < 0)
 	{
 		ray->step_y = -1;
-		ray->side_dist_y = (ray->play.pos.y - (int)ray->play.pos.y) * ray->delta_dist_y;
+		ray->side_dist_y = (ray->play.pos.y - ray->map_y) * ray->delta_dist_y;
+		// ray->side_dist_y = (ray->play.pos.y - (int)ray->play.pos.y) * ray->delta_dist_y;
 	}
 	else
 	{
 		ray->step_y = 1;
-		ray->side_dist_y = ((int)ray->play.pos.y + 1.0 - ray->play.pos.y) *
+		// ray->side_dist_y = ((int)ray->play.pos.y + 1.0 - ray->play.pos.y) *
+		ray->side_dist_y = (ray->map_y + 1.0 - ray->play.pos.y) *
 							ray->delta_dist_y;
 	}
 }

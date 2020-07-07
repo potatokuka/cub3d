@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 16:56:42 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/07 12:29:00 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,28 @@ void			ft_put_pixel(t_ray *ray, int x, int y, unsigned int color)
 	// 	*((unsigned int *)(ray->addr + pos)) = color;
 	// else
 	// 	*((unsigned int *)(ray->addr2 + pos)) = color;
-	char		*image;
+	int			pos;
+	/* char		*image; */
 
-	image = ray->addr;
-	image += (y * ray->line_len + (x * (ray->bits_pp / 8)));
-	*(unsigned int *)image = color;
+	/* printf("need to check these---\n"); */
+	/* printf("x_%d ** y_%d ** color_%d\n", x, y, color); */
+	pos = ((y * ray->line_len) + (x * (ray->bits_pp / 8)));
+	/* image = ray->addr; */
+	/* image += (y * ray->line_len + (x * (ray->bits_pp / 8))); */
+	/* *(unsigned int *)image = color; */
+	*((unsigned int *)(ray->addr + pos)) = color;
 }
 
 void			get_text_color(t_ray *ray, int y)
 {
+	// if (ray->side ==  && ray->ray_dir_y > 0)
+	// 	ray->data.g_color = ft_put_text_south(ray, ray->data.g_color, y);
+	// else if (ray->side == NORTH && ray->ray_dir_y < 0)
+	// 	ray->data.g_color = ft_put_text_north(ray, ray->data.g_color, y);
+	// else if (ray->side == WEST && ray->ray_dir_x > 0)
+	// 	ray->data.g_color = ft_put_text_west(ray, ray->data.g_color, y);
+	// else
+	// 	ray->data.g_color = ft_put_text_east(ray, ray->data.g_color, y);
 	if (ray->side == 1 && ray->ray_dir_y > 0)
 		ray->data.g_color = ft_put_text_south(ray, ray->data.g_color, y);
 	else if (ray->side == 1 && ray->ray_dir_y < 0)
@@ -47,18 +60,18 @@ void			draw_vert_line(t_ray *ray, int x)
 	y = 0;
 	while (y <= ray->draw_start)
 	{
-		ft_put_pixel(ray, ray->ceil_clr, y, x);
+		ft_put_pixel(ray, x, y, ray->ceil_clr);
 		y++;
 	}
 	while (y <= ray->draw_end)
 	{
 		get_text_color(ray, y);
-		ft_put_pixel(ray, ray->data.g_color, y, x);
+		ft_put_pixel(ray, x, y, ray->data.g_color);
 		y++;
 	}
 	while (y < ray->win_y)
 	{
-		ft_put_pixel(ray, ray->flr_color, y, x);
+		ft_put_pixel(ray, x, y, ray->flr_color);
 		y++;
 	}
 }
@@ -112,12 +125,12 @@ int				render_frame(t_ray *ray)
 {
 	if (ray->bmp != 0)
 	{
-		ft_cast_ray(ray);
+		render_frame_old(ray);
 		ft_img_to_bmp(ray);
 	}
 	mlx_sync(1, ray->img_ptr);
 	new_movement(ray);
-	ft_cast_ray(ray);
+	render_frame_old(ray);
 	if (mlx_put_image_to_window(ray->mlx_ptr, ray->mlx_wind,
 		ray->img_ptr, 0, 0))
 		put_error("MLX failed to put image to window");

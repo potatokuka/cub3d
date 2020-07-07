@@ -74,6 +74,7 @@ t_line		line_data(t_ray *ray, double dist, int x)
 {
 	t_line		line;
 
+	/* printf("wtf -- x _ %d\n", x); */
 	line.x = x;
 	line.len = ray->win_y / dist;
 	line.start = -line.len / 2 + ray->win_y / 2;
