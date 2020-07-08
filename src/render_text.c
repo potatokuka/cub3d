@@ -6,66 +6,11 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 18:26:19 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 16:46:11 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/08 12:18:43 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void			ft_draw_line(t_ray *ray, t_dda *dda, t_line line, t_texdata tex)
-{
-	int i;
-	t_color color;
-	double	tex_y;
-
-	i = 0;
-	tex_y = ((line.start - ray->win_y / 2 + line.len / 2) * tex.y_step)
-				- tex.y_step;
-	while (i < ray->win_y)
-	{
-		if (i >= line.start && i <= line.end)
-		{
-			color = ft_texture_get(ray, dda, tex.x,
-					((int)tex_y > 0) ? (int)tex_y : 0);
-			ft_put_pixel(ray, line.x, i, color.color);
-			tex_y += tex.y_step;
-		}
-		else if (i < line.start)
-			ft_put_pixel(ray, line.x, i, ray->ceil_clr);
-		else if (i < ray->win_y)
-			ft_put_pixel(ray, line.x, i, ray->flr_color);
-		i++;
-	}
-}
-
-t_color			ft_texture_get(t_ray *ray, t_dda *dda, int x, int y)
-{
-char	*image;
-t_color	color;
-
-if (dda->side == NORTH)
-{
-	image = ray->text_north.addr;
-	image += (y * ray->text_north.line_len + (x * (ray->text_north.bits_pp / 8)));
-}
-if (dda->side == SOUTH)
-{
-	image = ray->text_south.addr;
-	image += (y * ray->text_south.line_len + (x * (ray->text_south.bits_pp / 8)));
-}
-if (dda->side == EAST)
-{
-	image = ray->text_east.addr;
-	image += (y * ray->text_east.line_len + (x * (ray->text_east.bits_pp / 8)));
-}
-if (dda->side == WEST)
-{
-	image = ray->text_west.addr;
-	image += (y * ray->text_west.line_len + (x * (ray->text_west.bits_pp / 8)));
-}
-color.color = *(unsigned int *)image;
-return (color);
-}
 
 unsigned int	ft_put_text_north(t_ray *ray, unsigned int color, int y)
 {

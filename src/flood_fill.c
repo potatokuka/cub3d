@@ -19,7 +19,7 @@ double		ft_abs(double n)
 	return (n);
 }
 
-void	flood_check(t_ray *ray, int x, int y)
+void		flood_check(t_ray *ray, int x, int y)
 {
 	if (ray->map_array[y][x] == '0')
 		ray->map_array[y][x] = 'O';
@@ -31,7 +31,7 @@ void	flood_check(t_ray *ray, int x, int y)
 **	Mark where you've passed and Check if inbounds
 */
 
-int		flood_fill_map(t_ray *ray, int x, int y)
+int			flood_fill_map(t_ray *ray, int x, int y)
 {
 	int		len;
 

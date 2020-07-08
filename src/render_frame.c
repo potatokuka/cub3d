@@ -25,14 +25,6 @@ void			ft_put_pixel(t_ray *ray, unsigned int color, int y, int x)
 
 void			get_text_color(t_ray *ray, int y)
 {
-	// if (ray->side ==  && ray->ray_dir_y > 0)
-	// 	ray->data.g_color = ft_put_text_south(ray, ray->data.g_color, y);
-	// else if (ray->side == NORTH && ray->ray_dir_y < 0)
-	// 	ray->data.g_color = ft_put_text_north(ray, ray->data.g_color, y);
-	// else if (ray->side == WEST && ray->ray_dir_x > 0)
-	// 	ray->data.g_color = ft_put_text_west(ray, ray->data.g_color, y);
-	// else
-	// 	ray->data.g_color = ft_put_text_east(ray, ray->data.g_color, y);
 	if (ray->side == 1 && ray->ray_dir_y > 0)
 		ray->data.g_color = ft_put_text_south(ray, ray->data.g_color, y);
 	else if (ray->side == 1 && ray->ray_dir_y < 0)

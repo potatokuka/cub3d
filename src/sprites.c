@@ -81,10 +81,8 @@ void		save_sprites(t_ray *ray)
 			if (ray->map_array[y][x] == 'U')
 			{
 				g_sprite_list[sprite_num].x = (x + 0.5);
-				// g_sprite_list[sprite_num].x = x;
 				ray->map_array[y][x] = 'O';
-				// g_sprite_list[sprite_num].y = (y - 0.8);
-				g_sprite_list[sprite_num].y = y;
+				g_sprite_list[sprite_num].y = (y + 0.4);
 				sprite_num++;
 			}
 			x++;

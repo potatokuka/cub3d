@@ -15,7 +15,7 @@
 
 double		ft_deg2rad(char dir)
 {
-	double angle;	
+	double angle;
 
 	angle = 0;
 	if (dir == 'N')
@@ -31,20 +31,18 @@ double		ft_deg2rad(char dir)
 
 void		ft_direction_init(t_ray *ray)
 {
-	double 	direction;
+	double	direction;
 
 	direction = ft_deg2rad(ray->start_dir);
 	ray->play.dir.x = cos(direction);
 	ray->play.plane.x = sin(direction);
 	ray->play.dir.y = -sin(direction);
 	ray->play.plane.y = cos(direction);
-	printf("print test -- %f\n", direction);
 }
 
 void		set_play_pos(t_ray *ray, int x, int y)
 {
 	ray->start_dir = (ft_start_dir(ray, &ray->map_array[y][x]));
-	/* ft_direction_init(ray); */
 	ray->nsew += 1;
 	ray->play.pos.x = (x + 0.48);
 	ray->play.pos.y = (y + 0.43);

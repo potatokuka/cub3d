@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 11:41:50 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/07 23:05:05 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/08 12:22:20 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define START_P_PLANE_Y 	0.66
 # define MV_SPEED        	0.056
 # define ROT_SPEED       	1.7
-# define BUMP_B				-0.000040
+# define BUMP_B				-0.040
 # define AMB_LIGHT       	7
 # define LOOKSPEED			0.040
 # define LOOKACCEL			0.004
@@ -193,14 +193,6 @@ typedef	struct		s_sprite
 **	All working data for Ray Casting (RAY)
 */
 
-typedef	struct		s_line
-{
-	int				x;
-	int				len;
-	int				start;
-	int				end;
-}					t_line;
-
 typedef struct		s_coord
 {
 	int				x;
@@ -219,7 +211,6 @@ typedef	struct		s_cast
 	t_vect			dir;
 }					t_cast;
 
-
 typedef struct		s_play
 {
 	t_vect			pos;
@@ -227,17 +218,6 @@ typedef struct		s_play
 	t_vect			plane;
 	t_cast			cast;
 }					t_play;
-
-typedef struct		s_dda
-{
-	t_vect			sidedist;
-	t_vect			delta_dist;
-	t_coord			mappos;
-	t_coord			step;
-	t_coord			tex;
-	int				texstep;
-	int				side;
-}					t_dda;
 
 typedef struct		s_ray
 {
@@ -283,7 +263,6 @@ typedef struct		s_ray
 	int				wall_height;
 	int				move_left;
 	int				move_right;
-	int				time;
 	int				strafe_l;
 	int				strafe_r;
 	int				vars;
@@ -419,13 +398,7 @@ void				comb_sort_ex(int *order, double *dist, t_sort *sort);
 void				start_text_sprite(t_ray *ray);
 void				cub3d(t_ray *ray);
 double				ft_abs(double n);
-t_line				line_data(t_ray *ray, double dist, int x);
-t_texdata			ft_texdata_get(t_ray *ray, t_dda *dda, double dist, t_line line);
-void				ft_draw_line(t_ray *ray, t_dda *dda, t_line line, t_texdata tex);
-t_cast				ray_dir(t_ray *ray, int x);
-double				dist_calc(t_ray *ray, t_dda *dda);
-t_color				ft_texture_get(t_ray *ray, t_dda *dda, int x, int y);
-int					ft_set_side(int nb, int opt1, int opt2);
+
 /*
 **	Movement
 */

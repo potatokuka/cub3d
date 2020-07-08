@@ -44,9 +44,7 @@ void		init(t_ray *ray)
 	ray->play.plane.y = 0.66;
 	ray->map_x = 0;
 	ray->map_y = 0;
-	// if (ray->start_dir != 'E')
 	ft_direction_init(ray);
-		// change_start_dir(ray);
 	ray->mlx_ptr = mlx_init();
 	if (ray->mlx_ptr == NULL)
 		put_error("mlx error");
