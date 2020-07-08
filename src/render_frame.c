@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 17:10:34 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/07 17:15:49 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/08 13:27:57 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,24 @@ void			draw_vert_line(t_ray *ray, int x)
 	int	y;
 
 	y = 0;
-	while (y <= ray->draw_start)
-	{
-		ft_put_pixel(ray, ray->ceil_clr, y, x);
-		y++;
-	}
-	while (y <= ray->draw_end)
-	{
-		get_text_color(ray, y);
-		ft_put_pixel(ray, ray->data.g_color, y, x);
-		y++;
-	}
 	while (y < ray->win_y)
 	{
-		ft_put_pixel(ray, ray->flr_color, y, x);
-		y++;
+		if (y <= ray->draw_end && y >= ray->draw_start)
+		{
+			get_text_color(ray, y);
+			ft_put_pixel(ray, ray->data.g_color, y, x);
+			y++;
+		}
+		else if (y < ray->draw_start)
+		{
+			ft_put_pixel(ray, ray->ceil_clr, y, x);
+			y++;
+		}
+		else if (y < ray->win_y)
+		{
+			ft_put_pixel(ray, ray->flr_color, y, x);
+			y++;
+		}
 	}
 }
 

@@ -1,0 +1,22 @@
+R 4000 4000
+NO ./pics/goop.xpm
+SO ./pics/woody.xpm
+WE ./pics/leakybuzz.xpm
+EA ./pics/woody.xpm
+S ./pics/swolmo.xpm
+F 50,0,0
+C 5,9,50
+
+111111
+100001
+100001
+100001
+100001
+100001
+100001
+112001
+102001
+102001
+10N001
+101001
+111111

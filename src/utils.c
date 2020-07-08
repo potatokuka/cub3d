@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/24 13:58:53 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/01 16:39:43 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/08 13:15:21 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char		*ft_trim_space(char *line)
 	x = 0;
 	len = 0;
 	len = trim_help(line);
+	printf("len check %d\n", len);
 	str = (char *)malloc(sizeof(char) * len);
 	while (line[i])
 	{
@@ -98,5 +99,6 @@ char		*ft_trim_space(char *line)
 		}
 		i++;
 	}
+	str[x] = '\0';
 	return (str);
 }
