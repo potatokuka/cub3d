@@ -6,7 +6,7 @@
 /*   By: greed <greed@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 18:10:00 by greed         #+#    #+#                 */
-/*   Updated: 2020/07/06 14:05:12 by greed         ########   odam.nl         */
+/*   Updated: 2020/07/08 12:39:25 by greed         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void		map_read_start(t_ray *ray, char *line)
 	int		i;
 
 	i = 0;
-	printf("ray->vars=%d\n", ray->vars);
 	if (ray->vars != 8)
 		put_error("Incorrect configuration");
 	while (line[i] != '\0')
