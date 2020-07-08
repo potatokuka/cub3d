@@ -52,11 +52,10 @@ void	ft_update_pos(t_ray *ray, t_vect incr, double speed)
 	pos.y += (speed * incr.y);
 	new_pos.x = ray->play.pos.x;
 	new_pos.y = ray->play.pos.y;
-	if (pos.x > 0 && !ft_chrmatch(map[(int)ray->play.pos.y][(int)pos.x], "1"))
-		new_pos.x = pos.x;
-	if (pos.y > 0 && !ft_chrmatch(map[(int)pos.y][(int)ray->play.pos.x], "1"))
-		new_pos.y = pos.y;
-	new_pos = ft_yeet_back(ray->map_array, new_pos);
+	if (wall_col(ray, (int)pos.x, (int)pos.y) == 0)
+		new_pos = pos;
+	else
+		new_pos = ft_yeet_back(map, new_pos);
 	ray->play.pos = new_pos;
 }
 

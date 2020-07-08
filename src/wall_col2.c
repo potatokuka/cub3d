@@ -44,7 +44,7 @@ static int		height_start(char **map, int max_height, int x)
 	i = 0;
 	while (i < max_height)
 	{
-		if ((ft_strlen(map[i]) <= (size_t)x) && map[i][x] == 'O')
+		if ((ft_strlen(map[i]) >= (size_t)x) && map[i][x] == 'O')
 		{
 			start = i;
 			return (start);
