@@ -1,1 +1,0 @@
-spaces in maps,is mallocing for too much 

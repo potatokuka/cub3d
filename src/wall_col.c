@@ -55,7 +55,9 @@ void	ft_update_pos(t_ray *ray, t_vect incr, double speed)
 	if (wall_col(ray, (int)pos.x, (int)pos.y) == 0)
 		new_pos = pos;
 	else
+	{
 		new_pos = ft_yeet_back(map, new_pos);
+	}
 	ray->play.pos = new_pos;
 }
 
